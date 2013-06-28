@@ -68,7 +68,7 @@ public class BowlingFrameTest {
 		assertEquals(174, frame10.getGameScore());
 		
 		try {
-			BowlingFrame frame11 = new BowlingFrame(frame10, 10);
+			new BowlingFrame(frame10, 10);
 		} catch (IllegalStateException e) {
 			assertEquals("Game done... cannont add more frames", e.getMessage());
 		}
