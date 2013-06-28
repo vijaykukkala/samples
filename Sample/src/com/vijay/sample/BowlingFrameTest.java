@@ -79,15 +79,12 @@ public class BowlingFrameTest {
 	public void testFullScore() {
 		BowlingFrame frame1 = new BowlingFrame(null, 10);
 		
-		BowlingFrame frame2 = new BowlingFrame(frame1, 10);
-		BowlingFrame frame3 = new BowlingFrame(frame2, 10);
-		BowlingFrame frame4 = new BowlingFrame(frame3, 10);
-		BowlingFrame frame5 = new BowlingFrame(frame4, 10);
-		BowlingFrame frame6 = new BowlingFrame(frame5, 10);
-		BowlingFrame frame7 = new BowlingFrame(frame6, 10);
-		BowlingFrame frame8 = new BowlingFrame(frame7, 10);
-		BowlingFrame frame9 = new BowlingFrame(frame8, 10);
-		BowlingFrame frame10 = new BowlingFrame(frame9, 10, 10, 10, true);
+		BowlingFrame prev = frame1;
+		for(int i = 1; i < 9; i ++) {
+			BowlingFrame frame = new BowlingFrame(prev, 10);
+			prev = frame;
+		}
+		BowlingFrame frame10 = new BowlingFrame(prev, 10, 10, 10, true);
 		
 		assertEquals(300, frame10.getGameScore());
 	}
