@@ -59,12 +59,15 @@ public class BowlingFrame {
 		if (isSpare())
 			return getFirstRollOfNext();
 		else {
-			if (next.getRolls().size() == 2) {
-				return next.sum();
-			} else if (next.getRolls().size() == 3) {
-				return next.getRolls().get(0) + next.getRolls().get(1);
-			} else return next.sum() + next.getFirstRollOfNext();
+			return calculateStrikeScore();
 		}
+	}
+	private int calculateStrikeScore() {
+		if (next.getRolls().size() == 2) {
+			return next.sum();
+		} else if (next.getRolls().size() == 3) {
+			return next.getRolls().get(0) + next.getRolls().get(1);
+		} else return next.sum() + next.getFirstRollOfNext();
 	}
 
 	private boolean isLast() {
